@@ -168,6 +168,16 @@
   .split.rev .txt{order:2}
   /* my story: top-align the text so the heading sits near the top of the photo, not centered */
   #about .split{align-items:start}
+  #about .about-photo{align-self:start}   /* level the photo with the heading */
+
+  /* "read more" expander for the long story — keeps it short on mobile */
+  .story-more{margin-top:1rem}
+  .story-more>summary{cursor:pointer;list-style:none;color:var(--berry);font-weight:600;
+    display:inline-flex;align-items:center;gap:.4rem;padding:.2rem 0}
+  .story-more>summary::-webkit-details-marker{display:none}
+  .story-more>summary::after{content:"›";font-size:1.2em;line-height:1;transition:transform .2s}
+  .story-more[open]>summary::after{transform:rotate(90deg)}
+  .story-more p:first-of-type{margin-top:.6rem}
   /* events: photo still a touch larger, but give the text column room so the heading reads wide */
   #events .split{grid-template-columns:1fr 1.1fr}
   @media(max-width:760px){.split,.split.rev,#events .split{grid-template-columns:1fr}.split.rev .txt{order:0}}
@@ -270,8 +280,11 @@
         <span class="eyebrow">My story</span>
         <h2>Made by someone who really cares.</h2>
         <p class="lead">My name is Katya. I love people and their stories. I’m a trained raw-cake crafter and I’m training as a coach because I care about both how we treat our bodies and how we treat our minds — they’re connected.</p>
-        <p style="margin-top:1rem">My first impulse was to learn to make raw cakes for my own and my family’s health. Then I thought of everyone who can’t eat the usual cakes — allergies, sugar, dairy — and wanted them to have a beautiful, healthier choice too. That’s when I realised I wanted to change how cake is seen. For most of us, “cake” means sugar, guilt, something to regret later. I truly believe it can mean the opposite: real nourishment that happens to taste incredible.</p>
-        <p style="margin-top:1rem">Raw Love Cakes are built from good ingredients — and good ingredients are the only way to a good result. That’s what goes into every box: healthy ingredients, care for the person who’ll open it, and no waste behind it — in raw-cake making it’s easy to use every last ingredient, so it’s care twice over: for you and for the planet.</p>
+        <details class="story-more">
+          <summary>Read more</summary>
+          <p>My first impulse was to learn to make raw cakes for my own and my family’s health. Then I thought of everyone who can’t eat the usual cakes — allergies, sugar, dairy — and wanted them to have a beautiful, healthier choice too. That’s when I realised I wanted to change how cake is seen. For most of us, “cake” means sugar, guilt, something to regret later. I truly believe it can mean the opposite: real nourishment that happens to taste incredible.</p>
+          <p style="margin-top:1rem">Raw Love Cakes are built from good ingredients — and good ingredients are the only way to a good result. That’s what goes into every box: healthy ingredients, care for the person who’ll open it, and no waste behind it — in raw-cake making it’s easy to use every last ingredient, so it’s care twice over: for you and for the planet.</p>
+        </details>
       </div>
     </div>
 
