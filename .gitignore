@@ -1,0 +1,8 @@
+# macOS clutter
+.DS_Store
+
+# Local-only self-contained phone preview (4.9MB, regenerated on demand — not for hosting)
+Katya_26.06_phone.html
+
+# temp folder used when building the phone preview
+.embed_tmp/
