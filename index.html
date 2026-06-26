@@ -170,14 +170,16 @@
   #about .split{align-items:start}
   #about .about-photo{align-self:start}   /* level the photo with the heading */
 
-  /* tap the teaser line to expand the rest of the story inline (no button) */
+  /* tap the teaser line to expand the rest of the story inline (more / less) */
   .story-expand{margin-top:1rem;cursor:pointer}
   .story-expand .more-inline,.story-expand .more-block{display:none}
-  .story-expand .dots{color:var(--berry);font-weight:600}
-  .story-expand:hover .dots{text-decoration:underline}
+  .story-expand .story-toggle,.story-expand .dots{color:var(--berry);font-weight:600}
+  .story-expand:hover .story-toggle{text-decoration:underline}
+  .story-expand .less-label{display:none}
   .story-expand.open .more-inline{display:inline}
   .story-expand.open .more-block{display:block;margin-top:1rem}
-  .story-expand.open .dots{display:none}
+  .story-expand.open .dots,.story-expand.open .more-label{display:none}
+  .story-expand.open .less-label{display:inline}
   /* events: photo still a touch larger, but give the text column room so the heading reads wide */
   #events .split{grid-template-columns:1fr 1.1fr}
   @media(max-width:760px){.split,.split.rev,#events .split{grid-template-columns:1fr}.split.rev .txt{order:0}}
@@ -283,8 +285,8 @@
         <h2>Made by someone who really cares.</h2>
         <p class="lead">My name is Katya. I love people and their stories. I’m a trained raw-cake crafter and I’m training as a coach because I care about both how we treat our bodies and how we treat our minds — they’re connected.</p>
         <div class="story-expand" id="storyExpand" role="button" tabindex="0" aria-expanded="false" aria-label="Read the rest of Katya’s story">
-          <p>My first impulse was to learn to make raw cakes<span class="dots"> …</span><span class="more-inline"> for my own and my family’s health. Then I thought of everyone who can’t eat the usual cakes — allergies, sugar, dairy — and wanted them to have a beautiful, healthier choice too. That’s when I realised I wanted to change how cake is seen. For most of us, “cake” means sugar, guilt, something to regret later. I truly believe it can mean the opposite: real nourishment that happens to taste incredible.</span></p>
-          <p class="more-block">Raw Love Cakes are built from good ingredients — and good ingredients are the only way to a good result. That’s what goes into every box: healthy ingredients, care for the person who’ll open it, and no waste behind it — in raw-cake making it’s easy to use every last ingredient, so it’s care twice over: for you and for the planet.</p>
+          <p>My first impulse was to learn to make raw cakes<span class="dots"> …</span> <span class="story-toggle more-label">more</span><span class="more-inline"> for my own and my family’s health. Then I thought of everyone who can’t eat the usual cakes — allergies, sugar, dairy — and wanted them to have a beautiful, healthier choice too. That’s when I realised I wanted to change how cake is seen. For most of us, “cake” means sugar, guilt, something to regret later. I truly believe it can mean the opposite: real nourishment that happens to taste incredible.</span></p>
+          <p class="more-block">Raw Love Cakes are built from good ingredients — and good ingredients are the only way to a good result. That’s what goes into every box: healthy ingredients, care for the person who’ll open it, and no waste behind it — in raw-cake making it’s easy to use every last ingredient, so it’s care twice over: for you and for the planet. <span class="story-toggle less-label">less</span></p>
         </div>
       </div>
     </div>
