@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Love Raw Cake — interactive sliced-cake concept (draft 26.06)</title>
+<title>Love Raw Cake — interactive sliced-cake concept (draft 02.07)</title>
 
 <!--
 =====================================================================
@@ -12,7 +12,7 @@
   Click a slice -> it lifts out -> ingredients appear beside it.
 
   This is a feasibility prototype to show Marina the idea working.
-  It is SEPARATE from the main site (Katya_26.06.html).
+  It is SEPARATE from the main site (index.html).
   All slices/colours/ingredients are generated from the FLAVOURS
   array in the script below — easy to edit, reorder, or extend.
   Ingredient lists are SAMPLES — confirm with Katya before publishing.
@@ -60,6 +60,10 @@
   svg.cake{width:100%;max-width:560px;height:auto;cursor:pointer;overflow:visible}
   svg.cake .slice{transition:transform .28s cubic-bezier(.2,.8,.25,1),filter .2s;transform-origin:center}
   svg.cake .slice:hover{filter:brightness(1.06)}
+  /* no default blue focus ring on click; keyboard users still get a visible outline */
+  svg.cake .slice:focus{outline:none}
+  svg.cake .slice:focus-visible{outline:2px solid var(--berry);outline-offset:3px;border-radius:6px}
+  svg.cake:focus{outline:none}
   svg.cake .edge{fill:none;stroke:var(--cream);stroke-width:3}
   .hint{font-size:.85rem;color:var(--ink-soft)}
   .hint b{color:var(--berry);font-weight:600}
@@ -67,8 +71,8 @@
   /* details panel */
   .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);
     box-shadow:var(--shadow);overflow:hidden;min-height:420px;display:flex;flex-direction:column}
-  .panel .pic{aspect-ratio:16/10;background:var(--cream-deep);overflow:hidden}
-  .panel .pic img{width:100%;height:100%;object-fit:cover;display:block}
+  .panel .pic{aspect-ratio:4/3;background:var(--cream-deep);overflow:hidden}
+  .panel .pic img{width:100%;height:100%;object-fit:contain;display:block}
   .panel .body{padding:clamp(1.3rem,3vw,1.8rem)}
   .panel .swatch{display:inline-block;width:14px;height:14px;border-radius:50%;vertical-align:middle;margin-right:.5rem}
   .panel h2{font-size:clamp(1.5rem,3vw,2rem);margin:.5rem 0 .4rem}
@@ -93,7 +97,7 @@
 </head>
 <body>
 
-<div class="banner"><b>CONCEPT DRAFT · 26 Jun</b> — interactive "sliced-cake" menu idea · not the live site</div>
+<div class="banner"><b>CONCEPT DRAFT · 2 Jul</b> — interactive "sliced-cake" menu idea · not the live site</div>
 
 <header>
   <div class="wrap">
@@ -163,34 +167,34 @@
 </section>
 
 <footer>
-  <div class="wrap">Concept draft · Love Raw Cake · 26 Jun 2026 — built to test the sliced-cake idea. Photos &amp; ingredients are drafts.</div>
+  <div class="wrap">Concept draft · Love Raw Cake · 2 Jul 2026 — built to test the sliced-cake idea. Photos &amp; ingredients are drafts.</div>
 </footer>
 
 <script>
   /* ---- the menu data: edit freely; the cake redraws from this ---- */
   const FLAVOURS = [
-    {name:"Chocolate",                 color:"#4E3327", img:"images/chocolate.jpg",
+    {name:"Chocolate",                 color:"#4E3327", img:"images/sliced/chocolate.jpg",
       desc:"Deep, velvety raw chocolate on a nut-cacao base. The classic, done clean.",
       ing:["Cashews","Raw cacao","Dates","Coconut oil","Maple","Vanilla"]},
-    {name:"Chocolate & Blueberry",     color:"#5D4370", img:"images/chocolate-blueberry.jpg",
+    {name:"Chocolate & Blueberry",     color:"#5D4370", img:"images/sliced/chocolate-blueberry.jpg",
       desc:"Rich cacao layered with a bright, tangy blueberry swirl.",
       ing:["Cashews","Raw cacao","Blueberries","Dates","Coconut oil","Lemon"]},
-    {name:"Lemon",                     color:"#E8CF57", img:"images/lemon.jpg",
+    {name:"Lemon",                     color:"#E8CF57", img:"images/sliced/lemon.jpg",
       desc:"Zesty, fresh and light — sunshine in a slice.",
       ing:["Cashews","Lemon juice & zest","Coconut","Dates","Maple"]},
-    {name:"Carrot",                    color:"#CF7A33", img:"images/carrot.jpg",
+    {name:"Carrot",                    color:"#CF7A33", img:"images/sliced/carrot.jpg",
       desc:"Warm spice and natural sweetness, the raw way.",
       ing:["Walnuts","Carrot","Dates","Cinnamon","Ginger","Coconut"]},
-    {name:"Tiramisu",                  color:"#A9805A", img:"images/tiramisu.jpg",
+    {name:"Tiramisu",                  color:"#A9805A", img:"images/sliced/tiramisu.jpg",
       desc:"Coffee, cashew cream and cacao — the Italian favourite, reimagined.",
       ing:["Cashews","Coffee","Raw cacao","Dates","Coconut oil","Vanilla"]},
-    {name:"Mango & Passionfruit",      color:"#F2A93C", img:"images/mango.jpg",
+    {name:"Mango & Passionfruit",      color:"#F2A93C", img:"images/sliced/mango.jpg",
       desc:"Tropical, fragrant and silky — a true summer cake.",
       ing:["Cashews","Mango","Passionfruit","Coconut","Dates"]},
-    {name:"Macadamia Salted Caramel",  color:"#CDA96F", img:"images/macadamia.avif",
+    {name:"Macadamia Salted Caramel",  color:"#CDA96F", img:"images/sliced/macadamia.jpg",
       desc:"Buttery macadamia and deep date caramel with a hit of sea salt.",
       ing:["Macadamias","Dates","Coconut oil","Sea salt","Vanilla"]},
-    {name:"Matcha & Pineapple",        color:"#8AA05A", img:"images/matcha.jpg",
+    {name:"Matcha & Pineapple",        color:"#8AA05A", img:"images/sliced/matcha.jpg",
       desc:"Earthy matcha meets bright pineapple — vivid and refreshing.",
       ing:["Cashews","Matcha","Pineapple","Coconut","Maple"]},
   ];
